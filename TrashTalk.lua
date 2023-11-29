@@ -258,12 +258,12 @@ function TTPopulateTrophies()
 	frame:SetFrameStrata("FULLSCREEN_DIALOG")
 	frame:SetSize(frame.width, frame.height)
 	frame:SetPoint("CENTER", UIParent)
-	frame:SetBackdrop({
+	--[[frame:SetBackdrop({
 		bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
 		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
 		insets   = { left = 10, right = 10, top = 10, bottom = 10 }
 	})
-	frame:SetBackdropColor(0, 0, 0, 0.8)
+	frame:SetBackdropColor(0, 0, 0, 0.8)]]
 	frame:EnableMouse(true)
 	frame:EnableMouseWheel(true)
 
@@ -436,7 +436,7 @@ local function CreateOptions()
 	editbox_juked:SetAutoFocus(false)
 	editbox_kicked:SetAutoFocus(false)
 	
-	TTPopulateTrophies();
+	--TTPopulateTrophies();
 	local function eb1update()
 		TrashTalkOptions["SendUponSightText"] = editbox_sendUponSight:GetText()
 	end
@@ -467,7 +467,7 @@ local function CreateOptions()
 	editbox_kicked:Show()
 
 	InterfaceOptions_AddCategory(TrashTalkPanel)
-	InterfaceAddOnsList_Update()
+	--InterfaceAddOnsList_Update()
 end
 --end CreateOptions
 
@@ -636,13 +636,13 @@ function TrashTalk_initialize()
 	tex:SetAllPoints()
 	tex:SetTexture(0.1686274509803922, 0.0588235294117647, 0.003921568627451)
 	tex:SetAlpha(0.80)
-	titleText = backgroundFrame:CreateFontString("titleText", backgroundFrame, "GameFontNormal")
+	--[[titleText = backgroundFrame:CreateFontString("titleText", backgroundFrame, "GameFontNormal")
 	titleText:SetTextColor(1, 0.643, 0.169, 1)
 	titleText:SetShadowColor(0, 0, 0, 1)
 	titleText:SetShadowOffset(2, -1)
 	titleText:SetPoint("TOPLEFT", tex, "TOPLEFT", 16, 0)
 	titleText:SetText("/tt TrashTalk")
-	titleText:Show()
+	titleText:Show()--]]
 	backgroundFrame:Show()
 
 	for i = 1, 3 do
@@ -652,8 +652,8 @@ function TrashTalk_initialize()
 		selectedArenaFrame:SetWidth(buttonWidth)
 		selectedArenaFrame:SetHeight(buttonHeight)
 		selectedArenaFrame:SetScript("OnClick", buttonOnePressed)
-		selectedArenaFrame:SetBackdropBorderColor(0, 0, 1) --include alpha?
-		selectedArenaFrame:SetBackdropColor(0, 0, 1)
+		--selectedArenaFrame:SetBackdropBorderColor(0, 0, 1) --include alpha?
+		--selectedArenaFrame:SetBackdropColor(0, 0, 1)
 	end
 
 	backgroundFrame:Show()
