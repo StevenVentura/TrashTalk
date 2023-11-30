@@ -549,11 +549,13 @@ function TrashTalk_initialize()
 	local recentKickAttempt = 5
 	local recentKickAttemptPlayer = ""
 	function TrashTalk:COMBAT_LOG_EVENT_UNFILTERED(...)
-		local aEvent = select(2, ...)
-		local aUser = select(5, ...)
-		local destName = select(9, ...)
-		local spellInfo = select(15, ...)
-		local spellId, spellName, spellSchool = select(12, ...)
+		
+		local timestamp, eventType, _, sourceGUID, sourceName, _, _, destGUID, destName, _, _, spellId, spellName, spellSchool = CombatLogGetCurrentEventInfo()
+        -- Debug the combat log event
+        --print('Player ' .. sourceName .. ' casted ' .. spellName .. ' (id: ' .. spellId .. ', school: ' .. spellSchool .. ') on ' .. destName .. ' triggered by ' .. eventType)
+        local aUser = sourceName
+		local aEvent = eventType 
+		
 		wasEnemyArenaCast =
 			(aUser == GetUnitName("arena1", true) or aUser == GetUnitName("arena2", true) or aUser == GetUnitName("arena3", true))
 		wasFriendlyArenaCast =
