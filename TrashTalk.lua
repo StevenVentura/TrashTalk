@@ -30,7 +30,7 @@ function SendTrashTalkMessage(a, b, c, d)
 end
 function AddTrashTalkVictim(victim)
 	if (TrashTalkSavedWhispers[victim] == nil) then
-		print("adding victim " .. victim);
+		--print("adding victim " .. victim);
 		TrashTalkSavedWhispers[victim] = {}
 		TrashTalkSavedWhispers[victim]["messages"] = {}
 	end
@@ -46,7 +46,7 @@ end
 
 function AddTrashTalkMessage(victim, sender, content)
 	if (authorIsTrashTalkVictim(victim)) then
-		print("saving message from " .. sender)
+		--print("saving message from " .. sender)
 		local messages = TrashTalkSavedWhispers[victim]["messages"]
 		local lenx = lengthffs(messages)
 		messages[(lenx + 1)] = {}
@@ -162,7 +162,7 @@ function TrashTalkOutgoing(a, b, message, name, ...)
 	AddTrashTalkMessage(name, UnitName("player"), message);
 end
 function TrashTalk_eventFrame:VARIABLES_LOADED()
-	print("clearing trashtalksavedwhispers");
+	--print("clearing trashtalksavedwhispers");
 	TrashTalkSavedWhispers = nil;
 	if (TrashTalkSavedWhispers == nil) then
 		TrashTalkSavedWhispers = {}
@@ -337,7 +337,7 @@ end
 
 local function CreateOptions()
 	if (not TrashTalkOptions or TrashTalkOptions["Kicked"] == nil) then
-		print("instantiating trashtalkoptions")
+		--print("instantiating trashtalkoptions")
 		TrashTalkOptions = {
 			["Hitmarker"] = true,
 			["SendUponSight"] = true,
